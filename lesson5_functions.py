@@ -19,7 +19,7 @@ print(greet_child("Chance", 0))
 
 # --- Exercise 2 ---
 
-salaries = [115000,200000,280000,393000,550000]
+salaries = [115000,200000, 205,000, 210000, 220000, 250000, 280000,393000,550000]
 
 def check_salary(salary):
   if salary >= 550000:
@@ -35,3 +35,30 @@ def check_salary(salary):
 
 for salary in salaries:
   print(check_salary(salary))
+
+# --- Exercise 3 ---
+
+home_price = 1499950
+down_payment = 0.20 * home_price
+interest_rate = 6.8
+years = 30
+
+def mortgage_payment(home_price, down_payment, interest_rate, years):
+
+  monthly_rate = interest_rate/100/12
+  months = years * 12
+  loan = home_price - down_payment
+
+  payment = loan * (monthly_rate * (1 + monthly_rate) ** months) / ((1+ monthly_rate) ** months -1)
+    
+  return round(payment, 2)
+
+payment = mortgage_payment(home_price, down_payment, interest_rate, years)
+
+for salary in salaries:
+  monthly_income = salary/12
+  if payment > monthly_income * 0.43:
+    print(f"With a salary of ${salary:,}, the monthly mortgage payment of ${payment:,} is not affordable.")
+  else:
+    print(f"With a salary of ${salary:,}, the monthly income of ${monthly_income:,.2f} can cover the mortgage payment of ${payment:,}.")
+
