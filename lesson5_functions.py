@@ -17,8 +17,21 @@ print(greet_child("Imole", 2))
 print(greet_child("Layo", 1))
 print(greet_child("Chance", 0))
 
-# # --- Exercise 2 ---
+# --- Exercise 2 ---
 
-# salaries = [115000,200000,280000,393000,550000]
+salaries = [115000,200000,280000,393000,550000]
 
-# def check_salary(salary):
+def check_salary(salary):
+  if salary >= 550000:
+    return f"Your salary of ${salary:,} is for Anthropic band."
+  elif salary >= 393000:
+    return f"Your salary of ${salary:,} is for Netflix band."
+  elif salary >= 280000:
+    return f"Your salary of ${salary:,} is for Google band."
+  elif salary >= 200000:
+    return f"Your salary of ${salary:,} is for Microsoft band."
+  else:
+    return f"Your salary of ${salary:,} is grossly under market and needs improvement."
+
+for salary in salaries:
+  print(check_salary(salary))
